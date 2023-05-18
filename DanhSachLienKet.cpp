@@ -19,7 +19,7 @@ void Tao(list &l)
 	l.dau = NULL;
 	l.duoi = NULL;
 }
-Node *TaoNode(int x)
+Node *TaoNode(int x, node *tail)
 {
 	Node *p = new Node();
 	p -> data = x;
