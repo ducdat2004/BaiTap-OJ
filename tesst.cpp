@@ -1,35 +1,35 @@
-#include <bits/stdc++.h>
+#include <iostream>
 #include <string>
-using namespace std;
-int main()
-{
-	string s;
-	string str = "abc12a13";
-	for(int i = 0; i < str.length(); i++)
-	{
-		
-	 	for(int j = 48; j <= '9'; j++)
-		 {
-		 	int tong = 0;
-		 	if(str[i] == j)
-			{
-			 	int k = i;
-				while(k < str.length())
-				{
-					if(isdigit(str[k]) == 0)	
-					{
-						break;
-					}
-					else
-						tong += str[k];
-					k++;
-				}			 	
-			} 	
-			  	
-		} 
-		
-	
-	}
+#include <sstream>
 
-	
+int countValidWords(const std::string& input) {
+    std::istringstream iss(input);
+    std::string word;
+    int maxWordCount = 0;
+
+    while (iss >> word) {
+        int wordCount = 0;
+        for (char c : word) {
+            if (std::isalpha(c) || std::isdigit(c)) {
+                wordCount++;
+            }
+        }
+        if (wordCount > maxWordCount) {
+            maxWordCount = wordCount;
+        }
+    }
+
+    return maxWordCount;
+}
+
+int main() {
+    std::string input;
+    std::cout << "Nhập xâu ký tự: ";
+    std::getline(std::cin, input);
+
+    int maxWordCount = countValidWords(input);
+
+    std::cout << "Số từ dài nhất chỉ gồm chữ cái hoặc số: " << maxWordCount << std::endl;
+
+    return 0;
 }

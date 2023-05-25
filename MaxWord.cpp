@@ -22,7 +22,7 @@ int main()
             }
         }
     }
-    int soTu = 0;
+    int soTu = 0;   
     if(s[0] != ' ')
     {
         soTu++;
